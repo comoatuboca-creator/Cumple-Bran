@@ -72,7 +72,9 @@ if (dif <= 0) {
     document.getElementById("contador").innerHTML =
     "🎉 ¡Feliz cumpleaños, mi amor! ❤️<br>Espero que este sea un día inolvidable. 🎂";
     clearInterval(intervalo);
-} else {
+} else }
+
+
     document.getElementById("contador").innerHTML =
     dias+" días "+horas+" hs "+minutos+" min "+segundos+" seg";
 }
@@ -81,6 +83,8 @@ if (dif <= 0) {
 const intervalo = setInterval(actualizar,1000);
 
 actualizar();
+}
+
 
 </script>
 
