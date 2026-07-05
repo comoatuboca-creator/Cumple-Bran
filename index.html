@@ -3,39 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feliz Cumple 🎉</title>
+<title>Cuenta regresiva</title>
 
 <style>
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#111;
-color:white;
-text-align:center;
+    margin:0;
+    background:#111;
+    color:white;
+    font-family:Arial,sans-serif;
+    text-align:center;
 }
 
 h1{
-margin-top:30px;
-font-size:38px;
+    margin-top:30px;
+    font-size:42px;
 }
 
 #contador{
-font-size:32px;
-margin:20px;
-color:#ffd700;
-}
-
-img{
-width:90%;
-max-width:350px;
-border-radius:15px;
-margin:15px auto;
-display:block;
+    font-size:34px;
+    color:#ff6700;
+    margin:25px;
+    font-weight:bold;
 }
 
 p{
-font-size:22px;
-padding:20px;
+    font-size:24px;
+    padding:20px;
 }
 </style>
 </head>
@@ -46,45 +39,42 @@ padding:20px;
 
 <div id="contador"></div>
 
-<p>
-Hoy empieza tu sorpresa ❤️
-</p>
+<p>Hoy empieza tu sorpresa ❤️</p>
 
 <script>
 
-const fecha=new Date("2026-07-11T00:00:00");
-
-function actualizar(){
-
-const ahora = new Date();
-
-const dif=fecha-ahora;
-
-const dias=Math.floor(dif/86400000);
-
-const horas=Math.floor((dif%86400000)/3600000);
-
-const minutos=Math.floor((dif%3600000)/60000);
-
-const segundos=Math.floor((dif%60000)/1000);
-
-if (dif <= 0) {
-    document.getElementById("contador").innerHTML =
-    "🎉 ¡Feliz cumpleaños, mi amor! ❤️<br>Espero que este sea un día inolvidable, te amo con todo mi corazon. 🎂";
-    clearInterval(intervalo);
-} else {
-
-
-    document.getElementById("contador").innerHTML =
-    dias+" días "+horas+" hs "+minutos+" min "+segundos+" seg";
-}
-
+const fecha = new Date("2026-07-11T00:00:00");
 
 const intervalo = setInterval(actualizar,1000);
 
+function actualizar(){
+
+    const ahora = new Date();
+    const dif = fecha - ahora;
+
+    if(dif <= 0){
+
+        clearInterval(intervalo);
+
+        document.getElementById("contador").innerHTML =
+        "🎉 ¡Feliz cumpleaños, mi amor! ❤️<br><br>Espero que este sea un día inolvidable. Te amo con todo mi corazón. 🎂";
+
+        return;
+    }
+
+    const dias = Math.floor(dif/86400000);
+    const horas = Math.floor((dif%86400000)/3600000);
+    const minutos = Math.floor((dif%3600000)/60000);
+    const segundos = Math.floor((dif%60000)/1000);
+
+    document.getElementById("contador").innerHTML =
+        dias + " días " +
+        horas + " hs " +
+        minutos + " min " +
+        segundos + " seg";
+}
+
 actualizar();
-
-
 
 </script>
 
